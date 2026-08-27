@@ -1,75 +1,31 @@
-# React + TypeScript + Vite
+# typetone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a project which I created to cure boredom in writing by adding musical notes to each key
 
-Currently, two official plugins are available:
+Firstly I srsly was curiousl abt sound manupulation and bored of typing so I thought of this project no special reason ;> ok so here I first had to look various sites to get design idea of my website then I thought it would be to simple if it only produces only sound when typing so I also added markdown logic, speaker logic and stats at bottom of site.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+In this poject I used Ai very much to learn about sound manupulation and learning about Tone.js which is the lib which produces sound in my project which was ... pretty hard to learn ngl also I ahd to learn how to make waveform for that sound and merge their waves to produce single wave not diffrent waves.
 
-## React Compiler
+Mainly I used AI for statistically analyze all the words and tell em groups of words that appear together ofen so I can assign them simialr notes so they sound sweet not suddenly high and then low frequncy
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features (the fun stuff)
 
-## Expanding the ESLint configuration
+- [ ] Every key = a musical note (bottom row bass, home row main, top row bright)
+- [ ] Space = kick drum | Backspace = snare | Enter = crash
+- [ ] Typing speed changes how long notes ring (fast = short, slow = long)
+- [ ] Write in Markdown with live preview toggle
+- [ ] Scrolling waveform visualiser that dances to your typing
+- [ ] Volume slider + mute button (because sometimes you need silence)
+- [ ] Note counter and BPM tracker so you can flex your typing speed
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Installation
 
 ```
+git clone https://github.com/Prof2807/TypeTone/
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+cd TypeTone
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+npm install
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+npm run dev
 ```
