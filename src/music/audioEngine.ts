@@ -135,3 +135,12 @@ export function playEnter() {
 export function getAnalyser() {
     return getMaster().analyser
 }
+
+export function setVolume(value: number) {
+    const master = getMaster().masterGain
+    master.gain.value = Math.max(0, Math.min(1, value))
+}
+
+export function setMute(muted: boolean) {
+    Tone.Destination.mute = muted
+}
