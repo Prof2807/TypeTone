@@ -1,6 +1,7 @@
 import Header from "./components/Header/Header"
 import Editor from "./components/Editor/Editor"
 import StatusBar from "./components/StatusBar/StatusBar"
+import Visualiser from "./components/Visualiser/Visualiser"
 import { useState } from "react"
 
 export default function App() {
@@ -14,8 +15,9 @@ export default function App() {
   }
 
   return (
-    <div className="h-dvh flex flex-col overflow-hidden bg-(--background-color) text-white/85"> 
+    <div className="h-dvh flex flex-col overflow-hidden  text-white/85 relative"> 
 
+      <Visualiser />
       <Header />
       <Editor onNoteTyped={setNoteCount} onBpmUpdate={setBpm} noteCount={noteCount} />
       <StatusBar noteCount={noteCount} bpm={bpm} onClear={handleClear} />

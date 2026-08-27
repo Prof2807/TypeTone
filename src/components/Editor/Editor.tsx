@@ -115,6 +115,7 @@ export default function Editor( { onNoteTyped, onBpmUpdate, noteCount }: EditorP
 
         if (!startedRef.current) {
             Tone.start()
+            console.log('Audio context state:', Tone.context.state)
             startedRef.current = true
         }
 
@@ -159,7 +160,7 @@ export default function Editor( { onNoteTyped, onBpmUpdate, noteCount }: EditorP
     return (
         <main className="flex flex-1 h-full justify-center items-stretch min-h-0 overflow-hidden">
 
-            <div className="bg-white/1 items-center backdrop-blur-2xl border border-white/20 flex flex-col w-[50%] h-full rounded-lg min-h-0 overflow-hidden scrollbar-none">
+            <div className="bg-white/1 items-center  border border-white/20 flex flex-col w-[50%] h-full rounded-lg min-h-0 overflow-hidden scrollbar-none">
                 <MarkdownToolbar onTogglePreview={togglePreview} isPreview={isPreview}
                     onBold={handleBold}
                     onItalic={handleItalic}

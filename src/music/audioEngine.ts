@@ -1,5 +1,19 @@
 import * as Tone from "tone"
 
+let masterGain: Tone.Gain | null = null
+let analyser: Tone.Analyser | null = null
+
+function getMaster() {
+    if (!masterGain) {
+        masterGain = new Tone.Gain(1)
+        analyser = new Tone.Analyser('waveform', 1024)
+        
+        masterGain.connect(analyser)
+        analyser.connect(Tone.Destination)
+    }
+    return { masterGain, analyser }
+}
+
 let synths = {
     bottom: null as Tone.Synth | null,
     home: null as Tone.Synth | null,
@@ -27,7 +41,9 @@ function getSynth(row: "bottom" | "home" | "top") {
             }
         } as const
         
-        synths[row] = new Tone.Synth(configs[row]).toDestination()
+        const synth = new Tone.Synth(configs[row])
+        synth.connect(getMaster().masterGain)
+        synths[row] = synth
     }
     return synths[row]
 }
@@ -57,7 +73,7 @@ function getKick() {
             oscillator: { type: "sine" },
             envelope: { attack: 0.001, decay: 0.4, sustain: 0.01, release: 0.4, attackCurve: "exponential" },
             volume: -4
-        }).toDestination()
+        }).connect(getMaster().masterGain)
     }
     return kick
 }
@@ -68,7 +84,7 @@ function getSnare() {
             noise: { type: "white" },
             envelope: { attack: 0.001, decay: 0.2, sustain: 0, release: 0.1 },
             volume: -8
-        }).toDestination()
+        }).connect(getMaster().masterGain)
     }
     return snare
 }
@@ -81,7 +97,7 @@ function getCrash() {
             modulationIndex: 40,
             resonance: 800,
             volume: -10
-        }).toDestination()
+        }).connect(getMaster().masterGain)
         crash.frequency.value = 200
     }
     return crash
@@ -114,4 +130,8 @@ export function playEnter() {
 
     // Long, ringing sound
     getCrash().triggerAttackRelease(200, "4n")
+}
+
+export function getAnalyser() {
+    return getMaster().analyser
 }
