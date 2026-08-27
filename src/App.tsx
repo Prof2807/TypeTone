@@ -14,7 +14,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-dvh flex flex-col bg-(--background-color) text-white/85"> 
+    <div className="h-dvh flex flex-col overflow-hidden bg-(--background-color) text-white/85"> 
 
       <Header />
       <Editor onNoteTyped={setNoteCount} onBpmUpdate={setBpm} noteCount={noteCount} />

@@ -107,7 +107,7 @@ export default function Editor( { onNoteTyped, onBpmUpdate, noteCount }: EditorP
     }
     const handleListOrdered = () => wrapText("1. ", "")
     const handleListTodo = () => wrapText("- [ ] " , "")
-    const handleQuote = () => wrapText("> ", "")
+    const handleQuote = () => wrapText(`> "`, `"`)
     const handleCode = () => wrapText("`", "`")
 
 
@@ -157,9 +157,9 @@ export default function Editor( { onNoteTyped, onBpmUpdate, noteCount }: EditorP
     const togglePreview = () => setIsPreview(!isPreview)
 
     return (
-        <main className="flex grow justify-center items-stretch min-h-0 overflow-hidden">
+        <main className="flex flex-1 h-full justify-center items-stretch min-h-0 overflow-hidden">
 
-            <div className="bg-white/1 items-center backdrop-blur-2xl border border-white/20 flex flex-col w-[50%] rounded-lg min-h-0 overflow-hidden">
+            <div className="bg-white/1 items-center backdrop-blur-2xl border border-white/20 flex flex-col w-[50%] h-full rounded-lg min-h-0 overflow-hidden scrollbar-none">
                 <MarkdownToolbar onTogglePreview={togglePreview} isPreview={isPreview}
                     onBold={handleBold}
                     onItalic={handleItalic}
