@@ -17,3 +17,59 @@ html, body {
 @theme {
   --font-deca: "Lexend Deca", ui-sans-serif, system-ui, sans-serif;
 }
+
+.markdown-preview {
+  flex: 1 1 0%;
+  min-height: 0;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  color: #e5e5e5;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  padding: 1rem;
+  scrollbar-width: none;
+}
+
+.markdown-preview::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.markdown-preview h1,
+.markdown-preview h2,
+.markdown-preview h3 {
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.markdown-preview h1 { font-size: 2rem; }
+.markdown-preview h2 { font-size: 1.5rem; }
+.markdown-preview h3 { font-size: 1.25 rem; }
+
+.markdown-preview p {
+  margin-bottom: 0.75rem;
+}
+
+.markdown-preview strong { font-weight: 700; color: #fff; }
+.markdown-preview em { font-style: italic; }
+.markdown-preview code {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.2rem, 0.4rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.markdown-preview ul,
+.markdown-preview ol {
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.markdown-preview a {
+  color: #60a5fa;
+  cursor: pointer;
+  text-decoration: underline;
+}
