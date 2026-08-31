@@ -10,9 +10,10 @@ interface EditorProps {
     noteCount: number
     onNoteTyped: (count: number) => void
     onBpmUpdate: (bpm: number) => void
+    editorBlur: number
 }
 
-export default function Editor( { onNoteTyped, onBpmUpdate, noteCount }: EditorProps ) {
+export default function Editor( { onNoteTyped, onBpmUpdate, noteCount, editorBlur }: EditorProps ) {
 
     const [text, setText] = useState("")
     const [isPreview, setIsPreview] = useState(false)
@@ -160,7 +161,9 @@ export default function Editor( { onNoteTyped, onBpmUpdate, noteCount }: EditorP
     return (
         <main className="flex flex-1 h-full justify-center items-stretch min-h-0 overflow-hidden">
 
-            <div className="bg-white/1 backdrop-blur-sm items-center  border border-white/20 flex flex-col w-[50%] h-full rounded-lg min-h-0 overflow-hidden scrollbar-none">
+            <div className="items-center  border border-white/20 flex flex-col w-[50%] h-full rounded-lg min-h-0 overflow-hidden scrollbar-none"
+                style={{ backdropFilter: `blur(${editorBlur}px)` }}
+            >
                 <MarkdownToolbar onTogglePreview={togglePreview} isPreview={isPreview}
                     onBold={handleBold}
                     onItalic={handleItalic}

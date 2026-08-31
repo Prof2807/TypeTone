@@ -1,8 +1,17 @@
 import { useEffect, useRef } from "react";
 import { getAnalyser } from "../../music/audioEngine";
 
-export default function Visualiser() {
+interface VisualiserProps {
+  waveOffset: number
+}
+
+export default function Visualiser( { waveOffset }: VisualiserProps ) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const offsetRef = useRef<number>(waveOffset)
+
+  useEffect(() => {
+    offsetRef.current = waveOffset
+  }, [waveOffset])
   
   const bufferRef = useRef<Float32Array>(new Float32Array(600));
   const SMOOTH_FACTOR = 0.15;
@@ -81,8 +90,9 @@ export default function Visualiser() {
         const idx2 = Math.min(Math.floor(((i + 1) / activeWidth) * buffer.length), buffer.length - 1);
         const val1 = buffer[idx1];
         const val2 = buffer[idx2];
-        const y1 = height * 0.5 - val1 * height * 0.45;
-        const y2 = height * 0.5 - val2 * height * 0.45;
+        const centerY = height * 0.5 + offsetRef.current;
+        const y1 = centerY - val1 * height * 0.45;
+        const y2 = centerY - val2 * height * 0.45;
         const x1 = OFFSET + i;
         const x2 = OFFSET + i + 1;
 
