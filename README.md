@@ -17,6 +17,9 @@ Mainly I used AI for statistically analyze all the words and tell em groups of w
 - [ ] Scrolling waveform visualiser that dances to your typing
 - [ ] Volume slider + mute button (because sometimes you need silence)
 - [ ] Note counter and BPM tracker so you can flex your typing speed
+- [ ] Settings menu
+- [ ] 3 Sound Modes ( ambient, chirp, lofi )
+- [ ] Recording menu added
 
 ## Installation
 
@@ -29,3 +32,14 @@ npm install
 
 npm run dev
 ```
+
+
+
+https://github.com/user-attachments/assets/a57ae30d-99e6-4e65-bb4b-c346ff83d6db
+
+
+
+
+
+
+
