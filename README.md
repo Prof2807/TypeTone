@@ -1,6 +1,7 @@
 # typetone
 
 This is a project which I created to cure boredom in writing by adding musical notes to each key
+can try on: https://typetone-beta.vercel.app/
 
 Firstly I srsly was curiousl abt sound manupulation and bored of typing so I thought of this project no special reason ;> ok so here I first had to look various sites to get design idea of my website then I thought it would be to simple if it only produces only sound when typing so I also added markdown logic, speaker logic and stats at bottom of site.
 
